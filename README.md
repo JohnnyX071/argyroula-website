@@ -1,1 +1,1 @@
-https://johnnyx071.github.io/website/
+https://johnnyx071.github.io/argyroula-website/
