@@ -556,11 +556,12 @@ body {
   padding: 0;
 }
 
+/* FIX: Changed from flex to grid to easily handle 3 items side by side */
 #questionnaire-section .categories {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px; /* Adds spacing between cards */
-  align-items: flex-start; /* Ensures independent height alignment */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px; 
+  align-items: start; 
 }
 
 #questionnaire-section .category {
@@ -570,32 +571,8 @@ body {
   overflow: hidden;
   margin-top: 50px;
   transition: var(--transition);
-  width: calc(50% - 10px); /* Ensures two items per row */
-  display: block; /* Breaks flex height constraints */
-}
-
-#questionnaire-section .category:hover {
-  transform: translateY(-5px);
-}
-
-#questionnaire-section .category-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-}
-
-#questionnaire-section .category-content .btn {
-  width: 80%;
-  max-width: 200px;
-  text-align: center;
-}
-
-#questionnaire-section .category-description {
-  padding: 15px;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: var(--text-color);
+  width: 100%; /* Override the 50% restriction */
+  display: block; 
 }
 
 #questionnaire-section .category:hover {
@@ -642,11 +619,10 @@ body {
 /* Mobile stacking for questionnaires */
 @media (max-width: 768px) {
   #questionnaire-section .categories {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   #questionnaire-section .category {
-    width: 100%;
     margin-top: 30px;
   }
 
