@@ -28,7 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
         newPath += "index.html";
       }
     } else if (currentPath.includes("_gr.html")) {
-      newPath = currentPath.replace("_gr.html", ".html");
+      var lastSlashIndex = currentPath.lastIndexOf("/");
+      var basePath = currentPath.substring(0, lastSlashIndex + 1);
+      var fileName = currentPath.substring(lastSlashIndex + 1);
+      newPath = basePath + "assets/html_eng/" + fileName.replace("_gr.html", ".html");
     } else {
       newPath = currentPath;
     }

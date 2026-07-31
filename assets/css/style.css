@@ -38,11 +38,24 @@ ul {
   padding-left: 0;
 }
 
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #007bff;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+}
+
 a:hover,
-a:focus,
+a:focus {
+  color: #007bff;
+  text-decoration: underline;
+  text-decoration-color: #0056b3;
+  outline: none;
+}
+
 input,
 textarea {
-  text-decoration: none;
   outline: none;
 }
 
@@ -216,9 +229,13 @@ body {
   outline: none;
 }
 
-.btn {
+.btn,
+.btn:hover,
+.btn:focus,
+.btn:active {
   border-radius: 25px;
   transition: transform 0.2s, box-shadow 0.3s;
+  text-decoration: none !important;
 }
 .btn-light {
   background-color: #fff;
