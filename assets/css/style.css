@@ -203,12 +203,21 @@ body {
   transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
 }
 .btn-success:hover,
-.btn-success:active,
 .btn-success:focus {
   background: linear-gradient(145deg, #7E57C2, #673AB7);
   transform: translateY(-2px);
-  box-shadow: 0 8px 15px rgba(126, 87, 194, 0.4);
-  outline: none;
+  box-shadow: 0 8px 15px rgba(126, 87, 194, 0.4) !important;
+  outline: none !important;
+}
+
+.btn-success:active,
+.btn-success:not(:disabled):not(.disabled):active {
+  background: #673AB7 !important;
+  background-color: #673AB7 !important;
+  border-color: #673AB7 !important;
+  transform: translateY(-2px);
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .btn-info {
@@ -221,21 +230,44 @@ body {
   transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
 }
 .btn-info:hover,
-.btn-info:active,
 .btn-info:focus {
   background: linear-gradient(145deg, #7E57C2, #673AB7);
   transform: translateY(-2px);
-  box-shadow: 0 8px 15px rgba(126, 87, 194, 0.4);
-  outline: none;
+  box-shadow: 0 8px 15px rgba(126, 87, 194, 0.4) !important;
+  outline: none !important;
+}
+
+.btn-info:active,
+.btn-info:not(:disabled):not(.disabled):active {
+  background: #673AB7 !important;
+  background-color: #673AB7 !important;
+  border-color: #673AB7 !important;
+  transform: translateY(-2px);
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .btn,
 .btn:hover,
-.btn:focus,
-.btn:active {
+.btn:focus {
   border-radius: 25px;
   transition: transform 0.2s, box-shadow 0.3s;
   text-decoration: none !important;
+  outline: none !important;
+}
+
+.btn:active,
+.btn:not(:disabled):not(.disabled):active,
+.btn:focus,
+.btn:active:focus {
+  background: #673AB7 !important;
+  background-color: #673AB7 !important;
+  border-color: #673AB7 !important;
+  border-radius: 25px;
+  transition: transform 0.2s, box-shadow 0.3s;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 .btn-light {
   background-color: #fff;
@@ -1009,6 +1041,9 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 20px;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Individual book */
@@ -1078,6 +1113,9 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 0px;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Individual book */

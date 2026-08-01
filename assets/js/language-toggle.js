@@ -6,11 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Determine the current language and switch accordingly
     if (isEnglish) {
-      // Temporarily disable switching to Greek
       // Switch to Greek
-      //localStorage.setItem('language', 'GR');
-      //switchLanguageToGreek();
-      alert("Coming soon");
+      localStorage.setItem('language', 'GR');
+      switchLanguageToGreek();
     } else {
       // Switch to English
       localStorage.setItem("language", "EN");
@@ -22,41 +20,38 @@ document.addEventListener("DOMContentLoaded", function () {
   function switchLanguageToEnglish() {
     var currentPath = window.location.pathname;
     var newPath;
-    if (currentPath.endsWith("/") || currentPath.endsWith("/index_gr.html")) {
+    if (currentPath.endsWith("/index_gr.html")) {
       newPath = currentPath.replace("/index_gr.html", "/index.html");
-      if (newPath.endsWith("/")) {
-        newPath += "index.html";
-      }
-    } else if (currentPath.includes("_gr.html")) {
-      var lastSlashIndex = currentPath.lastIndexOf("/");
-      var basePath = currentPath.substring(0, lastSlashIndex + 1);
-      var fileName = currentPath.substring(lastSlashIndex + 1);
-      newPath = basePath + "assets/html_eng/" + fileName.replace("_gr.html", ".html");
+    } else if (currentPath.includes("/html_gr/")) {
+      newPath = currentPath.replace("/html_gr/", "/html_eng/");
     } else {
       newPath = currentPath;
     }
-    window.location.href = newPath;
+    
+    if (newPath !== currentPath) {
+      window.location.href = newPath;
+    }
   }
 
   // Function to switch language to Greek
-  //var currentPath = window.location.pathname;
-  //var newPath;
-
-  //if (currentPath.endsWith('/') || currentPath.endsWith('/index.html')) {
-  //    newPath = currentPath.replace('/index.html', '/index_gr.html');
-  //    if (newPath.endsWith('/')) {
-  //        newPath += 'index_gr.html';
-  //    }
-  //} else if (currentPath.includes('.html') && !currentPath.includes('_gr.html')) {
-  //    newPath = currentPath.replace('.html', '_gr.html');
-  //} else {
-  //    newPath = currentPath + '_gr.html';
-  //}
-
-  //window.location.href = newPath;
-
   function switchLanguageToGreek() {
-    alert("Coming soon");
+    var currentPath = window.location.pathname;
+    var newPath;
+
+    if (currentPath.endsWith('/') || currentPath.endsWith('/index.html')) {
+      newPath = currentPath.replace('/index.html', '/index_gr.html');
+      if (newPath.endsWith('/')) {
+        newPath += 'index_gr.html';
+      }
+    } else if (currentPath.includes('/html_eng/')) {
+      newPath = currentPath.replace('/html_eng/', '/html_gr/');
+    } else {
+        newPath = currentPath;
+    }
+
+    if (newPath !== currentPath) {
+      window.location.href = newPath;
+    }
   }
 
   // Function to initialize language toggle based on saved preference
@@ -84,9 +79,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Check if the current path matches the saved language
     var currentPath = window.location.pathname;
-    if (isEnglish && (currentPath.endsWith("/index_gr.html") || currentPath.includes("_gr.html"))) {
+    if (isEnglish && (currentPath.endsWith("/index_gr.html") || currentPath.includes("/html_gr/"))) {
       switchLanguageToEnglish();
-    } else if (!isEnglish && (currentPath.endsWith("/index.html") || (currentPath.includes(".html") && !currentPath.includes("_gr.html")))) {
+    } else if (!isEnglish && (currentPath.endsWith("/") || currentPath.endsWith("/index.html") || currentPath.includes("/html_eng/"))) {
       switchLanguageToGreek();
     }
   }
