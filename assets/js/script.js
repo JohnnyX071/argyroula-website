@@ -37,28 +37,38 @@ var expandedContainer = document.querySelector(".expanded-container");
 var expandedContent = document.querySelector(".expanded-content");
 var closeBtn = document.querySelector(".close-btn");
 
-buttons.forEach(function (button) {
-  button.addEventListener("click", function () {
-    var category = this.closest(".category");
-    var content = category.querySelector(".category-content").innerHTML;
-
-    // Populate expanded content with the content of the clicked category
-    expandedContent.innerHTML = content;
-
-    // Show expanded container
-    expandedContainer.style.display = "block";
-
-    // Auto-scroll to expanded container (scroll to center of viewport)
-    expandedContainer.scrollIntoView({ behavior: "smooth", block: "center" });
+if (buttons.length > 0 && expandedContainer && expandedContent) {
+  buttons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      var category = this.closest(".category");
+      if (category) {
+        var categoryContent = category.querySelector(".category-content");
+        if (categoryContent) {
+          var content = categoryContent.innerHTML;
+          // Populate expanded content with the content of the clicked category
+          expandedContent.innerHTML = content;
+          // Show expanded container
+          expandedContainer.style.display = "block";
+          // Auto-scroll to expanded container (scroll to center of viewport)
+          expandedContainer.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
+    });
   });
-});
+}
 
 // Close expanded container when close button is clicked
-closeBtn.addEventListener("click", function () {
-  expandedContainer.style.display = "none";
+if (closeBtn) {
+  closeBtn.addEventListener("click", function () {
+    if (expandedContainer) {
+      expandedContainer.style.display = "none";
+    }
 
-  // Reset all category buttons to "Explore Resources"
-  buttons.forEach(function (button) {
-    button.textContent = "Explore Resources";
+    // Reset all category buttons to "Explore Resources"
+    if (buttons) {
+      buttons.forEach(function (button) {
+        button.textContent = "Explore Resources";
+      });
+    }
   });
-});
+}
