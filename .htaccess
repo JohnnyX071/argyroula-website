@@ -2,8 +2,8 @@
 RewriteEngine On
 
 RewriteCond %{HTTPS} off [OR]
-RewriteCond %{HTTP_HOST} ^www\.argyroulaka\.gr$ [NC]
-RewriteRule ^(.*)$ https://argyroulaka.gr/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^www\.akalaitzaki\.com$ [NC]
+RewriteRule ^(.*)$ https://akalaitzaki.com/$1 [L,R=301]
 
 
 

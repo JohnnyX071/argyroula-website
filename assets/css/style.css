@@ -2339,7 +2339,7 @@ ol {
   overflow: hidden;
   border-radius: 20px; /* Rounded corners */
   width: 100%; /* Ensure the gallery item fills the column */
-  height: 300px; /* Fixed height for consistency */
+  height: 230px; /* Fixed height for consistency */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
 }
 
@@ -2495,4 +2495,62 @@ ol {
 .animate-pop.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+
+/* Video Play Icon */
+.video-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+.gallery-item:hover .video-play-icon {
+  color: #fff;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+
+/* Fix overlap on videos */
+.filter-video .overlay .text {
+  display: none !important;
+}
+
+
+/* Gallery Filter Buttons */
+.gallery-filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 2rem;
+}
+.gallery-filter-btn {
+    border: 2px solid #7E57C2;
+    background-color: transparent;
+    color: #7E57C2;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 10px 35px;
+    border-radius: 25px;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s, border-color 0.3s;
+    cursor: pointer;
+}
+.gallery-filter-btn:hover {
+    background: rgba(126, 87, 194, 0.1);
+}
+.gallery-filter-btn.active {
+    background: linear-gradient(145deg, #9575CD, #7E57C2);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(126, 87, 194, 0.3);
+}
+.gallery-filter-btn.active:hover {
+    background: linear-gradient(145deg, #7E57C2, #673AB7);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(126, 87, 194, 0.4);
 }
