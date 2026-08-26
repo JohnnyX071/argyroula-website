@@ -17,6 +17,9 @@
 
 body {
   font-family: sans-serif !important;
+  background-color: #f7f7ff !important;
+  color: #444444;
+  margin: 0;
 }
 /* Apply global reset to specific classes and elements */
 .col-md-4.col-sm-12,
@@ -115,10 +118,7 @@ p {
   padding: 0px;
 }
 
-body {
-  background-color: #f7f7ff !important;
-  color: #444444;
-}
+
 
 .session-title {
   padding: 30px;
@@ -311,9 +311,7 @@ body {
 }
 
 /*========language button toggle=========*/
-body {
-  margin: 0;
-}
+
 
 #language-btn {
   background: #ffffff;
@@ -393,14 +391,7 @@ body {
   --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-#resource-section body {
-  font-family: "Poppins", sans-serif;
-  line-height: 1.6;
-  color: var(--text-color);
-  background-color: var(--background-color);
-  margin: 0;
-  padding: 40px 20px;
-}
+
 
 #resource-section .container {
   max-width: 1200px;
@@ -568,14 +559,7 @@ body {
   --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-#questionnaire-section body {
-  font-family: "Poppins", sans-serif;
-  line-height: 1.6;
-  color: var(--text-color);
-  background-color: var(--background-color);
-  margin: 0;
-  padding: 40px 0;
-}
+
 
 #questionnaire-section .container {
   max-width: 1200px;
@@ -589,7 +573,6 @@ body {
 #questionnaire-section h4,
 #questionnaire-section h5,
 #questionnaire-section h6 {
-  font-family: "Poppins", sans-serif;
   font-weight: 700;
   color: var(--text-color);
   margin: 0 0 10px;
