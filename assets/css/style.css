@@ -80,7 +80,7 @@ textarea {
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
 }
 
 p {
@@ -1911,7 +1911,6 @@ html {
 .theory-container {
   display: flex;
   margin: 0;
-  height: calc(100vh - 60px); /* Full viewport height minus header height */
   margin-top: 13px; /* Space for the header */
 }
 
@@ -1987,8 +1986,6 @@ html {
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  height: calc(100vh - 60px); /* Full height minus header height */
-  overflow-y: auto;
 }
 
 .theory-content h1,
@@ -2022,6 +2019,11 @@ ol {
 
 .with-bullets li {
   margin-bottom: 5px;
+}
+
+/* Global hide for sidebar toggle on desktop */
+.sidebar-toggle {
+  display: none;
 }
 
 /* ======== Theory Mobile Styles =========== */
