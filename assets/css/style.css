@@ -2547,100 +2547,273 @@ ol {
 
 
 /* ==========================================================================
-   SERVICES & TOP-RIGHT BUTTON STYLES (Refined & Optimized)
+   SERVICES NAVBAR CATEGORY BUTTON & HEADER NAVIGATION (Clean, Single-Row Layout)
    ========================================================================== */
 
-/* Top-Right Services Header Button (Matches #language-btn positioning) */
-.services-header-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 10000;
-  background: linear-gradient(135deg, #7E57C2 0%, #673AB7 100%);
-  color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  padding: 8px 18px;
-  border-radius: 25px;
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.3px;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  box-shadow: 0 4px 12px rgba(126, 87, 194, 0.35);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  text-decoration: none !important;
-  line-height: 1.4;
-  white-space: nowrap;
-  cursor: pointer;
-}
+/* ================= Mobile & Tablet Screens (< 992px): Perfect Dropdown ================= */
+@media screen and (max-width: 991px) {
+  .small-menu {
+    display: block !important;
+    float: right;
+    color: #7E57C2;
+    font-size: 28px;
+    margin-top: 24px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
 
-.services-header-btn i {
-  font-size: 14px;
-  color: #ffffff;
-  transition: transform 0.3s ease;
-}
+  .small-menu:hover {
+    transform: scale(1.1);
+  }
 
-.services-header-btn:hover,
-.services-header-btn:focus {
-  background: linear-gradient(135deg, #673AB7 0%, #512DA8 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(103, 58, 183, 0.45);
-  color: #ffffff !important;
-  text-decoration: none !important;
-}
+  #menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    z-index: 10000;
+    display: none !important; /* Hidden until opened via hamburger */
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
 
-.services-header-btn:hover i {
-  transform: scale(1.18);
-}
+  /* When dropdown is open */
+  #menu.show,
+  #menu.collapsing {
+    display: block !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
 
-.services-header-btn:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(126, 87, 194, 0.55);
-}
+  header ul.nav {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 10px 0 !important;
+    list-style: none !important;
+  }
 
-/* Active state for Services Button when visiting Services pages */
-.services-header-btn.active {
-  background: linear-gradient(135deg, #673AB7 0%, #512DA8 100%);
-  border-color: #ffffff;
-  box-shadow: 0 0 16px rgba(126, 87, 194, 0.55);
-}
-
-/* Prevent nav menu from wrapping to a 2nd row on any desktop/laptop viewport */
-@media screen and (min-width: 768px) and (max-width: 1240px) {
   header ul li {
-    padding: 30px 12px !important;
+    float: none !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  header ul li:first-child {
+    border-top: none;
+  }
+
+  header ul li a {
+    color: #333333 !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    display: block !important;
+    padding: 14px 24px !important;
+    width: 100% !important;
+    text-decoration: none !important;
+    transition: background 0.2s ease, color 0.2s ease;
+    white-space: normal !important;
+  }
+
+  header ul li a:hover {
+    background: rgba(126, 87, 194, 0.08) !important;
+    color: #7E57C2 !important;
+  }
+
+  /* The Services button inside the mobile dropdown */
+  header ul li.nav-item-services {
+    padding: 12px 20px 16px 20px !important;
+    border-top: 1px solid rgba(126, 87, 194, 0.15) !important;
+  }
+
+  header ul li a.nav-services-btn {
+    background: linear-gradient(135deg, #7E57C2 0%, #673AB7 100%) !important;
+    color: #ffffff !important;
+    padding: 12px 24px !important;
+    border-radius: 25px !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    box-shadow: 0 4px 12px rgba(126, 87, 194, 0.3) !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0 !important;
+    border: none !important;
+  }
+
+  header ul li a.nav-services-btn i {
+    font-size: 15px !important;
+    color: #ffffff !important;
+  }
+
+  header ul li a.nav-services-btn:hover,
+  header ul li a.nav-services-btn:focus {
+    background: linear-gradient(135deg, #673AB7 0%, #512DA8 100%) !important;
+    color: #ffffff !important;
+  }
+
+  header ul li a.nav-services-btn::after {
+    display: none !important;
+  }
+}
+
+/* ================= Desktop & Laptop Screens (>= 992px): Single-Row Navbar ================= */
+@media screen and (min-width: 992px) {
+  .small-menu {
+    display: none !important;
+  }
+
+  header .row.align-items-center > [class*="col-"]:first-child {
+    flex: 0 0 22%;
+    max-width: 22%;
+  }
+
+  #menu {
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 0 0 78%;
+    max-width: 78%;
+    position: static !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  header ul.nav {
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap !important;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  header ul li {
+    float: none !important;
+    display: inline-flex !important;
+    align-items: center;
+    padding: 0 11px;
+    height: 80px;
+    margin: 0;
+  }
+
+  header ul li a {
+    font-size: 16px;
+    color: #333333;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: 6px 0;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  header ul li a:hover {
+    color: #7E57C2;
+    text-decoration: none;
+  }
+
+  /* Right-most nav category: The Services Button */
+  header ul li.nav-item-services {
+    padding-left: 12px;
+    padding-right: 0;
+  }
+
+  header ul li a.nav-services-btn {
+    background: linear-gradient(135deg, #7E57C2 0%, #673AB7 100%);
+    color: #ffffff !important;
+    padding: 8px 16px !important;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    box-shadow: 0 3px 10px rgba(126, 87, 194, 0.3);
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+    text-decoration: none !important;
+    white-space: nowrap;
+    line-height: 1.4;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  header ul li a.nav-services-btn:hover,
+  header ul li a.nav-services-btn:focus {
+    background: linear-gradient(135deg, #673AB7 0%, #512DA8 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(103, 58, 183, 0.45);
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+
+  header ul li a.nav-services-btn i {
+    font-size: 14px;
+    color: #ffffff;
+    transition: transform 0.25s ease;
+  }
+
+  header ul li a.nav-services-btn:hover i {
+    transform: scale(1.15);
+  }
+
+  /* Active state for Services Button */
+  header ul li a.nav-services-btn.active,
+  header ul li.active a.nav-services-btn {
+    background: linear-gradient(135deg, #673AB7 0%, #512DA8 100%);
+    box-shadow: 0 0 14px rgba(126, 87, 194, 0.55);
+    border-color: #ffffff;
+  }
+
+  header ul li a.nav-services-btn::after {
+    display: none !important;
+  }
+}
+
+/* Medium-large screens (992px to 1199px): Let logo use natural width so nav fits cleanly on 1 line */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  header .row.align-items-center > [class*="col-"]:first-child {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+    padding-right: 16px;
+  }
+  #menu {
+    flex: 1 0 0;
+    max-width: 100%;
+  }
+  header ul li {
+    padding: 0 7px;
   }
   header ul li a {
-    font-size: 14.5px !important;
+    font-size: 15px;
   }
-}
-
-/* Mobile Responsiveness for Services Header Button */
-@media screen and (max-width: 767px) {
-  .services-header-btn {
-    top: 15px;
-    right: 58px;
-    padding: 5px 12px;
-    font-size: 12px;
-    gap: 5px;
-    border-radius: 20px;
-    box-shadow: 0 2px 6px rgba(126, 87, 194, 0.3);
-    transform: scale(0.9);
-    transform-origin: right top;
-  }
-  .services-header-btn i {
-    font-size: 12px;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .services-header-btn {
-    top: 16px;
-    right: 52px;
-    padding: 4px 10px;
-    font-size: 11px;
-    transform: scale(0.85);
+  header ul li a.nav-services-btn {
+    padding: 7px 14px !important;
+    font-size: 14px !important;
   }
 }
 
